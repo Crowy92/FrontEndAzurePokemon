@@ -1,5 +1,5 @@
 const fetchAsync = async (index) => {
-    const rawData = await fetch(`https://myfirstazurepokemonapi.azurewebsites.net/pokemon/${index}`);
+    const rawData = await fetch(`http://localhost:8080/pokemon/${index}`);
     const pokemonData = await rawData.json();
     console.log(pokemonData);
 
@@ -20,7 +20,7 @@ const fetchAsync = async (index) => {
 }
 
 const deleteAsync = async (index) => {
-    const result = await fetch(`https://myfirstazurepokemonapi.azurewebsites.net/pokemon/${index}`, { method: 'DELETE' })
+    const result = await fetch(`http://localhost:8080/pokemon/${index}`, { method: 'DELETE' })
     if (result) {
         const nameHeading = document.getElementById('pokemonName');
         nameHeading.textContent = "Pokemon Deleted";
@@ -72,7 +72,7 @@ form.addEventListener('submit', (e) =>{
             
         })
     };
-    fetch('https://myfirstazurepokemonapi.azurewebsites.net/pokemon/', requestOptions)
+    fetch('http://localhost:8080/pokemon/', requestOptions)
         .then(response => response.json())
         .then(pokemonData => {
             console.log(pokemonData);
